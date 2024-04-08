@@ -1,8 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
-class Program
+using System;
+namespace _3_writeline
 {
-    static void Main()
-    {
-        Console.WriteLine("Programming is like building a multilingual puzzle");
-    }
+	class Program
+	{
+    	static void Main(string[]args)
+    	{
+        	Console.WriteLine(@"""Programming is like building a multilingual puzzle");
+    	}
+	}
 }
