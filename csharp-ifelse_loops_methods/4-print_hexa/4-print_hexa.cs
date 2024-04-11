@@ -6,7 +6,7 @@ class Program
 	{
 		for (int number = 0; number < 99; number++)
 		{
-			Console.Write($"{number} = 0x{number.ToString("x")}");
+			Console.Write($"{number} = 0x{number.ToString("X")}");
 		}
 	}
 }
