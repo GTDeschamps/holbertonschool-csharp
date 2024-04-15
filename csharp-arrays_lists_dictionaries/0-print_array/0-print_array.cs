@@ -17,7 +17,10 @@ class Array
         for (int i = 0; i < size; i++)
         {
             result[i] = i;
-            Console.Write (result[i] +" ");
+            if (i != size-1)
+                Console.Write (result[i] +" ");
+            else
+                Console.Write (result[i]);
         }
         Console.WriteLine();
         return result;
