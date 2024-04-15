@@ -23,4 +23,3 @@ class Array
         return result;
     }
 }
-
