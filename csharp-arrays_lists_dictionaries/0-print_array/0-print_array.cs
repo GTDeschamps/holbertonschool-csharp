@@ -6,7 +6,7 @@ class Array
         if (size == 0)
         {
             Console.WriteLine();
-            return  new int[0];
+            return new int[0];
         }
         if (size < 0)
         {
