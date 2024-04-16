@@ -5,18 +5,20 @@ using System.Collections.Generic;
         public static List<int> DeleteAt(List<int> myList, int index)
         {
             if (index < 0 || index >= myList.Count)
-        {
-            Console.WriteLine("Index out of range");
-            return myList;
-        }
-        List<int> updatedList = new List<int>(myList.Count - 1);
-        for (int i = 0; i < myList.Count; i++)
-        {
-            if (i != index)
             {
-                updatedList.Add(myList[i]);
+            Console.WriteLine("Index out of range");
             }
-        }
-        return updatedList;
+            else
+            {
+                for (var i = index; i < myList.Count; i++)
+                {
+                    if (i + 1 < myList.Count)
+                    {
+                        myList[i] = myList[i + 1];
+                    }
+                }
+                myList.RemoveRange(myList.Count -1, 1);
+            }
+            return myList;
         }
     }
