@@ -10,11 +10,6 @@ class List
         Console.WriteLine("Size cannot be negative");
         return null;
     }
-    else if (size = 0)
-    {
-        Console.WriteLine();
-        return new List<int>();
-    }
     List<int> newList = new List<int>();
     for (int i = 0; i < size; i++)
     {
