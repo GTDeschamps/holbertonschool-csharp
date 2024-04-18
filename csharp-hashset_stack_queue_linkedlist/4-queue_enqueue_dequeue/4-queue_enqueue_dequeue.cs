@@ -17,7 +17,7 @@ class MyQueue
 
         aQueue.Enqueue(newItem);
         bool containsSearch = aQueue.Contains(search);
-        Console.WriteLine("Queue contains " + search + ": " + containsSearch);
+        Console.WriteLine("Queue contains \"" + search + "\": " + containsSearch);
 
          if (containsSearch)
         {
