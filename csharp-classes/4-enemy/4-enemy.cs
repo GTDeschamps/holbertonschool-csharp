@@ -9,8 +9,8 @@ namespace Enemies
 
         public Zombie()
         {
-            this.health = 0;
-            this.name = "No Name";
+            health = 0;
+            name = "No Name";
         }
 
         public Zombie(int value)
@@ -18,7 +18,7 @@ namespace Enemies
             if (value >= 0)
             {
                 health = value;
-                name = "No Name";
+                name = "(No Name)";
             }
             else
             {
@@ -28,8 +28,8 @@ namespace Enemies
 
         public string Name
         {
-            get { return name; }
             set { name = value; }
+            get { return name; }
         }
 
         public int GetHealth()
