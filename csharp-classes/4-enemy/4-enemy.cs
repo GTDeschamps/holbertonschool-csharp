@@ -5,25 +5,20 @@ namespace Enemies
     class Zombie
     {
         private int health;
-        private string name;
+        private string name = "(No name)";
 
         public Zombie()
         {
             health = 0;
-            name = "No Name";
         }
 
         public Zombie(int value)
         {
-            if (value >= 0)
+            if (value < 0)
             {
-                health = value;
-                name = "(No Name)";
+                throw new ArgumentException("Health must be greater than or equal to 0");
             }
-            else
-            {
-            throw new ArgumentException("Health must be greater than or equal to 0");
-            }
+            health = value;
         }
 
         public string Name
