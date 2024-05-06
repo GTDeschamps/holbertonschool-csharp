@@ -1,12 +1,28 @@
 ﻿using System;
 
-namespace _3_enemy
+namespace Enemies
 {
-    class Program
+    class Zombie
     {
-        static void Main(string[] args)
+        private int health;
+
+        public Zombie()
         {
-            Console.WriteLine("Hello World!");
+            this.health = 0;
+        }
+
+        public Zombie(int value)
+        {
+            if (value < 0)
+            {
+                throw new ArgumentException("Health must be greater than or equal to 0");
+            }
+            this.health = value;
+        }
+
+        public int GetHealth()
+        {
+            return this.health;
         }
     }
 }
