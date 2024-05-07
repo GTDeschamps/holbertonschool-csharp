@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MyMath
 {
-    public class Operations
+    class Operations
     {
         public static int Max(List<int> nums)
         {
