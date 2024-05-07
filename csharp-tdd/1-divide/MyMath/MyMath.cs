@@ -20,9 +20,9 @@ namespace MyMath
                 }
 
                 if (matrix == null)
-            {
-                return null;
-            }
+                {
+                    return null;
+                }
 
                 int rows = matrix.GetLength(0);
                 int cols = matrix.GetLength(1);
