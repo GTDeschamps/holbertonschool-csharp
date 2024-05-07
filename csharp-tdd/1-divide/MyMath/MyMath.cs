@@ -35,7 +35,6 @@ namespace MyMath
             }
             catch (DivideByZeroException)
             {
-                Console.WriteLine("Division by zero error");
                 return null;
             }
         }
