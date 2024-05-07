@@ -1,41 +1,18 @@
+using System;
 using NUnit.Framework;
 using MyMath;
 
 namespace MyMath.Tests
 {
-    [TestFixture]
     public class OperationsTests
     {
         [Test]
-        public void Add_WhenCalled_ReturnsSumOfTwoNumbers()
+        public void TestAdd()
         {
-            // Arrange
-            int a = 5;
-            int b = 3;
-            int expected = 8;
-
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.AreEqual(expected, result);
+            // Test the Add method with some sample inputs
+            Assert.AreEqual(3, Operations.Add(1, 2));
+            Assert.AreEqual(10, Operations.Add(5, 5));
+            Assert.AreEqual(-2, Operations.Add(-3, 1));
         }
-
-        [Test]
-        public void Add_WithNegativeNumbers_ReturnsCorrectSum()
-        {
-            // Arrange
-            int a = -7;
-            int b = 4;
-            int expected = -3;
-
-            // Act
-            int result = Operations.Add(a, b);
-
-            // Assert
-            Assert.AreEqual(expected, result);
-        }
-
-        // You can add more test cases for different scenarios
     }
 }

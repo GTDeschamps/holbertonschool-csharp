@@ -2,10 +2,11 @@
 
 namespace MyMath
 {
-    public class Operations
+    public static class Operations
     {
         public static int Add(int a, int b)
         {
+            // Add a and b and return the result
             return a + b;
         }
     }
