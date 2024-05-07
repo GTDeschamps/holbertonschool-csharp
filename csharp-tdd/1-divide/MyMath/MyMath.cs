@@ -30,12 +30,13 @@ namespace MyMath
                         result[i, j] = matrix[i, j] / num;
                     }
                 }
+
+                return result;
             }
             catch (DivideByZeroException)
             {
                 return null;
             }
-            return result;
         }
     }
 }
