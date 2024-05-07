@@ -19,11 +19,6 @@ namespace MyMath
                     return null;
                 }
 
-                if (matrix == null)
-                {
-                    return null;
-                }
-
                 int rows = matrix.GetLength(0);
                 int cols = matrix.GetLength(1);
                 int[,] result = new int[rows, cols];
