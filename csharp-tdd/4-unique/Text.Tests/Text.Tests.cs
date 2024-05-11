@@ -24,7 +24,7 @@ namespace Text.Tests
         public void UniqueChar_InputStringWithAllRepeatingChars_ReturnsNegativeOne()
         {
             // Arrange
-            string input = "hello";
+            string input = "world";
             int expectedIndex = -1;
 
             // Act

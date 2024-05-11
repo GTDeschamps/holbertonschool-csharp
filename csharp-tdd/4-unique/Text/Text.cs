@@ -36,14 +36,4 @@ namespace Text
             return -1;
         }
     }
-
-    class Program
-    {
-        static void Main()
-        {
-            string input = "leetcode";
-            int index = Str.UniqueChar(input);
-            Console.WriteLine(index); // Output: 0 (since 'l' is the first non-repeating character at index 0)
-        }
-    }
 }
