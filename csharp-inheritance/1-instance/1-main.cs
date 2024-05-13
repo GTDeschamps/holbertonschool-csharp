@@ -7,7 +7,7 @@ class Program
     {
         var numArray = new int[10];
         var num = 10;
-        var aList = new List&lt;int&gt;();
+        var aList = new List<int>();
 
         if (Obj.IsInstanceOfArray(numArray))
             Console.WriteLine("{0} is an instance of type array or inherits from type array", nameof(numArray));
