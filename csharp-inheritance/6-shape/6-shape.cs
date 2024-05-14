@@ -17,7 +17,7 @@ class Rectangle : Shape
 
     public int Width
     {
-        get => width;
+        get {return width;}
         set
         {
             if (value < 0)
@@ -33,7 +33,7 @@ class Rectangle : Shape
 
     public int Height
     {
-        get => height;
+        get {return height;}
         set
         {
             if (value < 0)
