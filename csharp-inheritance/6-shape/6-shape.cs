@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Shape
+class Shape
 {
 
     public virtual int Area()
@@ -10,7 +10,7 @@ public class Shape
     }
 }
 
-public class Rectangle : Shape
+class Rectangle : Shape
 {
     private int width;
     private int height;
