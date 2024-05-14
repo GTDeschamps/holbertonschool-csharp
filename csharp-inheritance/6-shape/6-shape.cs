@@ -1,10 +1,8 @@
 ﻿using System;
-/// <summary>
-/// Base class for shapes
-/// </summary>
+
 public class Shape
 {
-    // Base class for shapes
+
     public virtual int Area()
     {
         // Throw NotImplementedException with the specified message
@@ -12,19 +10,11 @@ public class Shape
     }
 }
 
-
-/// <summary>
-/// Represents a rectangle shape.
-/// </summary>
 public class Rectangle : Shape
 {
     private int width;
     private int height;
 
-    /// <summary>
-    /// Gets or sets the width of the rectangle.
-    /// </summary>    public int Width
-    /// If the value is negative, an ArgumentException is thrown.
     public int Width
     {
         get => width;
@@ -36,15 +26,11 @@ public class Rectangle : Shape
             }
             else
             {
-            width = value;
+                width = value;
             }
         }
     }
 
-    /// <summary>
-    /// Gets or sets the height of the rectangle.
-    /// </summary>
-    /// If the value is negative, an ArgumentException is thrown.
     public int Height
     {
         get => height;
@@ -56,7 +42,7 @@ public class Rectangle : Shape
             }
             else
             {
-            height = value;
+                height = value;
             }
         }
     }
