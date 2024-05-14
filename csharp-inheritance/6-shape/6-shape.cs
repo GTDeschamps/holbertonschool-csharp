@@ -1,5 +1,5 @@
 ﻿using System;
-class Shape
+public class Shape
 {
     public virtual int Area()
     {
@@ -8,7 +8,7 @@ class Shape
     }
 }
 
-class Rectangle : Shape
+public class Rectangle : Shape
 {
     private int width;
     private int height;
@@ -22,7 +22,10 @@ class Rectangle : Shape
             {
                 throw new ArgumentException("Width must be greater or equal than 0");
             }
+            else
+            {
             width = value;
+            }
         }
     }
     public int Height
@@ -34,7 +37,10 @@ class Rectangle : Shape
             {
                 throw new ArgumentException("Height must be greater or equal than 0");
             }
+            else
+            {
             height = value;
+            }
         }
     }
 }
