@@ -20,9 +20,9 @@ public class Rectangle : Shape
         /// Gets or sets the width of the rectangle.
         set
         {
-            if (value <0)
+            if (value < 0)
             {
-                throw new ArgumentException("Width must be greater or equal than 0");
+                throw new ArgumentException("Width must be greater or equal to 0");
                 /// If the value is negative, an ArgumentException is thrown.
             }
             else
@@ -37,9 +37,9 @@ public class Rectangle : Shape
         /// Gets or sets the height of the rectangle.
         set
         {
-            if (value <0)
+            if (value < 0)
             {
-                throw new ArgumentException("Height must be greater or equal than 0");
+                throw new ArgumentException("Height must be greater or equal to 0");
                 /// If the value is negative, an ArgumentException is thrown.
             }
             else
