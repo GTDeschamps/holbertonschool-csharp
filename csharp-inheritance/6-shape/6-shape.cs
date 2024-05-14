@@ -1,4 +1,7 @@
 ﻿using System;
+/// <summary>
+/// Base class for shapes
+/// </summary>
 public class Shape
 {
     // Base class for shapes
@@ -9,21 +12,27 @@ public class Shape
     }
 }
 
+
+/// <summary>
+/// Represents a rectangle shape.
+/// </summary>
 public class Rectangle : Shape
 {
     private int width;
     private int height;
 
+    /// <summary>
+    /// Gets or sets the width of the rectangle.
+    /// </summary>    public int Width
+    /// If the value is negative, an ArgumentException is thrown.
     public int Width
     {
         get => width;
-        /// Gets or sets the width of the rectangle.
         set
         {
             if (value < 0)
             {
                 throw new ArgumentException("Width must be greater or equal to 0");
-                /// If the value is negative, an ArgumentException is thrown.
             }
             else
             {
@@ -31,16 +40,19 @@ public class Rectangle : Shape
             }
         }
     }
+
+    /// <summary>
+    /// Gets or sets the height of the rectangle.
+    /// </summary>
+    /// If the value is negative, an ArgumentException is thrown.
     public int Height
     {
         get => height;
-        /// Gets or sets the height of the rectangle.
         set
         {
             if (value < 0)
             {
                 throw new ArgumentException("Height must be greater or equal to 0");
-                /// If the value is negative, an ArgumentException is thrown.
             }
             else
             {
