@@ -5,7 +5,6 @@ class Shape
 
     public virtual int Area()
     {
-        // Throw NotImplementedException with the specified message
         throw new NotImplementedException("Area() is not implemented");
     }
 }
@@ -38,7 +37,7 @@ class Rectangle : Shape
         {
             if (value < 0)
             {
-                throw new ArgumentException("Height must be greater or equal to 0");
+                throw new ArgumentException("Height must be greater than or equal to 0");
             }
             else
             {
