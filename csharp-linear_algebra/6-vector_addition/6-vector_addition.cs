@@ -6,18 +6,18 @@ namespace _6_vector_addition
     {
         public static double[] Add(double[] vector1, double[] vector2)
         {
-            if ((vector1.length != 2 && vector1.length != 3) || (vector2.length != 2 && vector2.length != 3))
+            if ((vector1.Length != 2 && vector1.Length != 3) || (vector2.Length != 2 && vector2.Length != 3))
             {
                 return new double[]{-1};
             }
 
-            if (vector1.length != vector2.length)
+            if (vector1.Length != vector2.Length)
             {
                 return new double[]{-1};
             }
 
-            double[] result = new double[vector1.length];
-            for (int i = 0; i < vector1.length; i++)
+            double[] result = new double[vector1.Length];
+            for (int i = 0; i < vector1.Length; i++)
             {
                 result[i] = vector1[i] + vector2[i];
             }
