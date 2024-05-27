@@ -10,7 +10,7 @@ class VectorMath
 
             for (double component : vector)
             {
-                sumOfSquares += component * component;
+                sumOfSquares += Math.pow(component, 2);
             }
             double magnitude = Math.sqrt(sumOfSquares);
             return Math.round(magnitude * 100.0) / 100.0;
