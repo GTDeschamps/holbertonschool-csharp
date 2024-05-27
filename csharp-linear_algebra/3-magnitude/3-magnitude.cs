@@ -8,7 +8,7 @@ class VectorMath
         {
             double sumOfSquares = 0;
 
-            for (double component : vector)
+            for (double component in vector)
             {
                 sumOfSquares += Math.pow(component, 2);
             }
