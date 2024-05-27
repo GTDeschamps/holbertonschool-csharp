@@ -9,11 +9,10 @@ class VectorMath
             double sumOfSquares = 0;
             foreach (double component in vector)
             {
-                sumOfSquares += Math.pow(component, 2);
+                sumOfSquares += component * component;
             }
             double magnitude = Math.sqrt(sumOfSquares);
             return Math.round(magnitude, 2);
-            // Arrondi à la centième près
         }
         else
         {
