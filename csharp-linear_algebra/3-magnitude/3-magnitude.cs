@@ -13,7 +13,7 @@ class VectorMath
                 sumOfSquares += Math.pow(component, 2);
             }
             double magnitude = Math.sqrt(sumOfSquares);
-            return Math.round(magnitude * 100.0) / 100.0;
+            return Math.round(magnitude, 2);
             // Arrondi à la centième près
         }
         else
