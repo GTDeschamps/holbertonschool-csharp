@@ -1,38 +1,45 @@
 ﻿using System;
 
-class MatrixMath
+ class MatrixMath
 {
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
-        // Check if matrix is square
-        if (matrix.GetLength(0) != matrix.GetLength(1))
+        int rows = matrix.GetLength(0);
+        int cols = matrix.GetLength(1);
+
+        if (rows != cols)
         {
-            // Invalid matrix size
+            // Return a matrix containing -1 if the matrix is not square
             return new double[,] { { -1 } };
         }
 
-        // Create a new matrix to hold the rotated values
-        double[,] rotatedMatrix = new double[matrix.GetLength(0), matrix.GetLength(1)];
+        double[,] result = new double[rows, cols];
+        double centerX = rows / 2.0;
+        double centerY = cols / 2.0;
 
-        // Calculate rotation matrix
-        double cosAngle = Math.Cos(angle);
-        double sinAngle = Math.Sin(angle);
-        double[,] rotationMatrix = new double[,] { { cosAngle, -sinAngle }, { sinAngle, cosAngle } };
-
-        // Perform matrix multiplication
-        for (int i = 0; i < matrix.GetLength(0); i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < matrix.GetLength(1); j++)
+            for (int j = 0; j < cols; j++)
             {
-                double value = 0;
-                for (int k = 0; k < matrix.GetLength(0); k++)
+                double x = i - centerX;
+                double y = j - centerY;
+
+                // Apply rotation transformation
+                double newX = x * Math.Cos(angle) - y * Math.Sin(angle);
+                double newY = x * Math.Sin(angle) + y * Math.Cos(angle);
+
+                // Translate back to original coordinates and round to the nearest integer
+                int newXCoord = (int)Math.Round(newX + centerX);
+                int newYCoord = (int)Math.Round(newY + centerY);
+
+                // Check if the new coordinates are within bounds
+                if (newXCoord >= 0 && newXCoord < rows && newYCoord >= 0 && newYCoord < cols)
                 {
-                    value += matrix[i, k] * rotationMatrix[k, j];
+                    result[newXCoord, newYCoord] = matrix[i, j];
                 }
-                rotatedMatrix[i, j] = value;
             }
         }
 
-        return rotatedMatrix;
+        return result;
     }
 }
