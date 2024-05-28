@@ -1,5 +1,5 @@
 ﻿using System;
-public static class MatrixMath
+class MatrixMath
 {
     public static double[,] Add(double[,] matrix1, double[,] matrix2)
     {
