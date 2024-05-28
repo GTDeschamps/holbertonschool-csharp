@@ -24,16 +24,4 @@ public class MatrixMath
             return new double[,] { { -1 } };
         }
     }
-
-    private static bool IsValidMatrix(double[,] matrix)
-    {
-        int rows = matrix.GetLength(0);
-        int cols = matrix.GetLength(1);
-        return rows == 2 || rows == 3 && rows == cols;
-    }
-
-    private static bool AreMatricesSameSize(double[,] matrix1, double[,] matrix2)
-    {
-        return matrix1.GetLength(0) == matrix2.GetLength(0) && matrix1.GetLength(1) == matrix2.GetLength(1);
-    }
 }
