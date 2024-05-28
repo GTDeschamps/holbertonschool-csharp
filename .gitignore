@@ -1,4 +1,4 @@
 global.json
 bin
 obj
-sh
+*.sh
