@@ -6,43 +6,41 @@ class MatrixMath
     {
         if (matrix.GetLength(0) != matrix.GetLength(1))
         {
-            // If the matrix is not square, return a matrix containing -1
-            return new double[,] { { -1 } };
+            return new double[,] {{-1}};
         }
 
-        int n = matrix.GetLength(0);
-        double[,] result = new double[n, n];
+        int size = matrix.GetLength(0);
+        double[,] result = new double[size, size];
 
-        if (direction != 'x' && direction != 'y')
+        for (int i = 0; i < size; i++)
         {
-            // If given an axis that is not x or y, return a matrix containing -1
-            return new double[,] { { -1 } };
-        }
-
-        if (direction == 'x')
-        {
-            for (int i = 0; i < n; i++)
+            for (int j = 0; j < size; j++)
             {
-                for (int j = 0; j < n; j++)
-                {
-                    int newI = i + (int)(factor * j);
-                    if (newI >= 0 && newI < n)
-                    {
-                        result[newI, j] = matrix[i, j];
-                    }
-                }
+                result[i, j] = matrix[i, j];
             }
         }
-        else // direction == 'y'
+
+        if (direction != 'x' && direction != 'X' && direction != 'y' && direction != 'Y')
         {
-            for (int i = 0; i < n; i++)
+            return new double[,] {{-1}};
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
             {
-                for (int j = 0; j < n; j++)
+                if (direction == 'x' || direction == 'X')
                 {
-                    int newJ = j + (int)(factor * i);
-                    if (newJ >= 0 && newJ < n)
+                    if (j + 1 < size)
                     {
-                        result[i, newJ] = matrix[i, j];
+                        result[i, j + 1] += factor * result[i, j];
+                    }
+                }
+                else // direction == 'y' || direction == 'Y'
+                {
+                    if (i + 1 < size)
+                    {
+                        result[i + 1, j] += factor * result[i, j];
                     }
                 }
             }
