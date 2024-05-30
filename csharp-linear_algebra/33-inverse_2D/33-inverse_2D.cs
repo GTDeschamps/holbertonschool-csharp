@@ -1,38 +1,30 @@
-﻿using System;
-
-class MatrixMath
+﻿class MatrixMath
 {
     public static double[,] Inverse2D(double[,] matrix)
     {
-        int n = matrix.GetLength(0);
-        int m = matrix.GetLength(1);
+        int rowCount = matrix.GetLength(0);
+        int colCount = matrix.GetLength(1);
 
-        // Check if the matrix is a 2D square matrix
-        if (n != m)
+        if (rowCount!= 2 || colCount!= 2)
         {
             return new double[,] { { -1 } };
         }
 
-        // Calculate the determinant
-        double det = Determinant(matrix);
+        double det = matrix[0, 0] * matrix[1, 1] - matrix[0, 1] * matrix[1, 0];
 
-        // If the determinant is 0, the matrix is non-invertible
         if (det == 0)
         {
             return new double[,] { { -1 } };
         }
 
-        // Find the inverse of the matrix
-        double[,] adjugate = Adjugate(matrix);
-        double[,] inverse = new double[n, n];
+        double invDet = 1 / det;
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                inverse[i, j] = adjugate[i, j] / det;
-            }
-        }
+        double[,] inverse = new double[2, 2];
+
+        inverse[0, 0] = matrix[1, 1] * invDet;
+        inverse[0, 1] = -matrix[0, 1] * invDet;
+        inverse[1, 0] = -matrix[1, 0] * invDet;
+        inverse[1, 1] = matrix[0, 0] * invDet;
 
         return inverse;
     }
