@@ -73,4 +73,40 @@ public class ImageProcessor
             grayscale.Save(newFilename);
         });
     }
+
+     /// <summary>
+    /// Reduces the images specified by the file paths to black and white based on a given threshold
+    /// and saves them in the "image_processor" directory, which is located in the parent directory of the source images directory.
+    /// </summary>
+    /// <param name="filenames">An array of file paths to the source images.</param>
+    /// <param name="threshold">The threshold value for black and white conversion.</param>
+    public static void BlackWhite(string[] filenames, double threshold)
+    {
+        Parallel.ForEach(filenames, filename =>
+        {
+            // Load the original image
+            Bitmap original = new Bitmap(filename);
+            Bitmap blackWhite = new Bitmap(original.Width, original.Height);
+
+            // Convert the image to black and white based on the threshold
+            for (int x = 0; x < original.Width; x++)
+            {
+                for (int y = 0; y < original.Height; y++)
+                {
+                    Color originalColor = original.GetPixel(x, y);
+                    int luminance = (int)(0.2126 * originalColor.R + 0.7152 * originalColor.G + 0.0722 * originalColor.B);
+                    Color blackWhiteColor = luminance >= threshold ? Color.White : Color.Black;
+                    blackWhite.SetPixel(x, y, blackWhiteColor);
+                }
+            }
+
+            // Extract the file name without the original path and add "_bw" before the extension
+            string[] nameSplit = filename.Split(new char[] { '/', '.' });
+            string newFilename = $"{nameSplit[nameSplit.Length - 2]}_bw.{nameSplit[nameSplit.Length - 1]}";
+
+            // Save the black and white image
+            blackWhite.Save(newFilename);
+        });
+    }
 }
+
