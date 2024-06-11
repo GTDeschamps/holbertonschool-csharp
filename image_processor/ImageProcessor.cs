@@ -108,5 +108,32 @@ public class ImageProcessor
             blackWhite.Save(newFilename);
         });
     }
+
+     /// <summary>
+    /// Creates a thumbnail image based on a given height (in pixels) and retains the aspect ratio of the original image.
+    /// </summary>
+    /// <param name="filenames">An array of file paths to the source images.</param>
+    /// <param name="height">The height of the thumbnail image in pixels.</param>
+    public static void Thumbnail(string[] filenames, int height)
+    {
+        Parallel.ForEach(filenames, filename =>
+        {
+            // Load the original image
+            Bitmap original = new Bitmap(filename);
+
+            // Calculate the new width to maintain the aspect ratio
+            int width = (int)((double)height / original.Height * original.Width);
+
+            // Create the thumbnail image
+            Bitmap thumbnail = new Bitmap(original, new Size(width, height));
+
+            // Extract the file name without the original path and add "_th" before the extension
+            string[] nameSplit = filename.Split(new char[] { '/', '.' });
+            string newFilename = $"{nameSplit[nameSplit.Length - 2]}_th.{nameSplit[nameSplit.Length - 1]}";
+
+            // Save the thumbnail image
+            thumbnail.Save(newFilename);
+        });
+    }
 }
 
