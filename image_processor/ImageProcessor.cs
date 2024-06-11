@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Provides methods for processing images, such as inverting their colors.
@@ -13,7 +14,7 @@ public class ImageProcessor
     /// <param name="filenames">An array of file paths to the source images.</param>
     public static void Inverse(string[] filenames)
     {
-        foreach (string filename in filenames)
+        Parallel.ForEach (filenames, filename =>
         {
             // Load the original image
             Bitmap original = new Bitmap(filename);
@@ -30,10 +31,12 @@ public class ImageProcessor
                 }
             }
 
-            // Extract the file name without the original path
-             string newFilename = $"{filename.Replace(".", "_inverse.")}";
-            // Save the inverted image
-            inverted.Save(newFilename);
-        }
+            // Extract the file name without the original path and add "_inverse" before the extension
+                string[] nameSplit = filename.Split(new char[] { '/', '.' });
+                string newFilename = $"{nameSplit[nameSplit.Length - 2]}_inverse.{nameSplit[nameSplit.Length - 1]}";
+
+                // Save the inverted image
+                inverted.Save(newFilename);
+        });
     }
 }
