@@ -12,6 +12,6 @@ class Queue<T>
     /// <returns>The name of the type of elements in the queue.</returns>
     public string CheckType()
     {
-        return typeof(T).Name;
+        return typeof(T).FullName;
     }
 }
