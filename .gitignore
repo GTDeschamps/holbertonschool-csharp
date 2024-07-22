@@ -2,3 +2,8 @@ global.json
 bin
 obj
 *.sh
+*-unsplash_bw.jpg
+*-unsplash_th.jpg
+*-unsplash_inverse.jpg
+*-unsplash_grayscale.jpg
+*-unsplash.jpg
