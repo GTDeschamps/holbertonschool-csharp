@@ -1,9 +1,5 @@
 ﻿using System;
 
-/// <summary>
-/// A generic queue class.
-/// </summary>
-/// <typeparam name="T">The type of elements in the queue.</typeparam>
 class Queue<T>
 {
     private Node head;
@@ -11,10 +7,6 @@ class Queue<T>
     private int count;
 
     public void Enqueue(T value)
-    /// <summary>
-    /// add the new node at the end of the queue
-    /// </summary>
-    /// <returns> the end of queue </returns>
     {
         Node newNode = new Node(value);
         if (head == null)
@@ -31,17 +23,9 @@ class Queue<T>
     }
 
     public int Count()
-    /// <summary>
-    /// count the number of Node
-    /// </summary>
-    /// <returns> the number of Node </returns>
     {
         return count;
     }
-    /// <summary>
-    /// create new Node.
-    /// </summary>
-    /// <returns>The new Node.</returns>
     public class Node
     {
         public T Value { get; set; }
@@ -54,10 +38,6 @@ class Queue<T>
     }
 
     public T Dequeue()
-    /// <summary>
-    /// Removes the first node in the queue and returns its value.
-    /// </summary>
-    /// <returns>The value of the removed node, or the default value of T if the queue is empty.</returns>
     {
         if (head == null)
         {
@@ -74,10 +54,6 @@ class Queue<T>
     }
 
     public T Peek()
-    /// <summary>
-    /// return the value of the first Node of the Queue
-    /// </summary>
-    /// <returns> Value of first Node </returns>
     {
         if (head == null)
         {
