@@ -201,28 +201,30 @@ public class Key : Base, ICollectable
 }
 
 ///<summary>
-///objects take place in a room
+///RoomObjects Class
 ///</summary>
 public class RoomObjects
 {
     ///<summary>
     ///iterate all the actions
     ///</summary>
+    ///<param name="roomObjects">List of Base objects</param>
+    /// <param name="type">The type of interface to check for</param>
     public static void IterateAction(List<Base> roomObjects, Type type)
     {
         foreach (Base obj in roomObjects)
         {
-            if (typeof(IInteractive).IsAssignableFrom(obj.GetType()))
+            if (type == typeof(IInteractive) && obj is IInteractive interactive)
             {
-                ((IInteractive)obj).Interact();
+                interactive.Interact();
             }
-            else if (typeof(IBreakable).IsAssignableFrom(obj.GetType()))
+            else if (type == typeof(IBreakable) && obj is IBreakable breakable)
             {
-                ((IBreakable)obj).Break();
+                breakable.Break();
             }
-            else if (typeof(ICollectable).IsAssignableFrom(obj.GetType()))
+            else if (type == typeof(ICollectable) && obj is ICollectable collectable)
             {
-                ((ICollectable)obj).Collect();
+                collectable.Collect();
             }
         }
     }
