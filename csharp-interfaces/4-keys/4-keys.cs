@@ -168,6 +168,7 @@ public class Key : Base, ICollectable
     /// <summary>
     /// Gets or sets a value indicating whether the key is collected
     /// </summary>
+    /// <value>Getter and setter</value>
     public bool isCollected{get; set;}
 
     /// <summary>
@@ -175,7 +176,7 @@ public class Key : Base, ICollectable
     /// </summary>
     /// <param name="name">Name of the key</param>
     /// <param name="isCollected">Whether the key is collected</param>
-    public Key(string name = "key", bool isCollected = false) : base()
+    public Key(string name = "key", bool isCollected = false)
     {
         this.name = name;
         this.isCollected = isCollected;
@@ -188,7 +189,7 @@ public class Key : Base, ICollectable
     {
         if (!isCollected)
         {
-            isCollected = true;
+            this.isCollected = true;
             Console.WriteLine($"You pick up the {name}.");
         }
         else
