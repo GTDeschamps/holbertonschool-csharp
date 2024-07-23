@@ -1,10 +1,21 @@
 ﻿using System;
+
+/// <summary>
+/// Base class
+/// </summary>
 public abstract class Base
 {
-    public string Name { get; set; }
+    /// <summary>
+    /// Name Property
+    /// </summary>
+    public string name { get; set;}
+    /// <summary>
+    /// Override TostringMethod
+    /// </summary>
+    /// <returns></returns>
     public override string ToString()
     {
-        return $"{Name} is a {GetType().Name}"
+        return $"{name} is a {this.GetType()}";
     }
 }
 
