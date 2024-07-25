@@ -14,7 +14,7 @@ public class Player
     /// </summary>
     /// <param name="name">The name of the player.</param>
     /// <param name="maxHp">The maximum health of the player.</param>
-    public Player(string name, float maxHp =100f)
+    public Player(string name, float maxHp = 100f)
     {
         this.name = name;
         if (maxHp > 0)
