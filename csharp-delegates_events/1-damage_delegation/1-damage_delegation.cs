@@ -70,6 +70,6 @@ public class Player
         }
         hp += heal;
         hp = Math.Min(hp, maxHp);
-        Console.WriteLine($"{name} heals {heal} health!");
+        Console.WriteLine($"{name} heals {heal} HP!");
     }
 }
