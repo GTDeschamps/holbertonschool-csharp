@@ -76,13 +76,6 @@ public class Player
     }
 
 
-    /// <summary>
-    /// Prints the player's health status.
-    /// </summary>
-    public void PrintHealth()
-    {
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
-    }
 
     ///<summary>
     ///Applies damage to the player's health
@@ -112,6 +105,7 @@ public class Player
         float newHp = hp + heal;
         ValidateHP(newHp);
         Console.WriteLine($"{name} heals {heal} HP!");
+
     }
 
     ///<summary>
@@ -132,7 +126,15 @@ public class Player
         {
             hp = newHp;
         }
+    }
+
+    /// <summary>
+    /// Prints the player's health status.
+    /// </summary>
+    public void PrintHealth()
+    {
         CheckStatus(HPCheck, new CurrentHPArgs(this.hp));
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
     ///<summary>
@@ -166,23 +168,23 @@ public class Player
         // Assuming maxHp is accessible here, you can adjust the values as needed
         float maxHp = 100; // for example
 
-        if (currentHp == maxHp)
+        if (e.currentHp == maxHp)
         {
             Console.WriteLine($"{name} is in perfect health!");
         }
-        else if (currentHp >= maxHp / 2 && currentHp < maxHp)
+        else if (e.currentHp >= maxHp / 2 && e.currentHp < maxHp)
         {
             Console.WriteLine($"{name} is doing well!");
         }
-        else if (currentHp >= maxHp / 4 && currentHp < maxHp / 2)
+        else if (e.currentHp >= maxHp / 4 && e.currentHp < maxHp / 2)
         {
             Console.WriteLine($"{name} isn't doing too great...");
         }
-        else if (currentHp > 0 && currentHp < maxHp / 4)
+        else if (currentHp > 0 && e.currentHp < maxHp / 4)
         {
             Console.WriteLine($"{name} needs help!");
         }
-        else if (currentHp == 0)
+        else if (e.currentHp == 0)
         {
             Console.WriteLine($"{name} is knocked out!");
         }
