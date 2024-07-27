@@ -75,6 +75,13 @@ public class Player
         HPCheck += CheckStatus; // Assign CheckStatus to the HPCheck EventHandler
     }
 
+    /// <summary>
+    /// Prints the player's health status.
+    /// </summary>
+    public void PrintHealth()
+    {
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
+    }
 
 
     ///<summary>
@@ -102,9 +109,9 @@ public class Player
         {
             heal = 0;
         }
+        Console.WriteLine($"{name} heals {heal} HP!");
         float newHp = hp + heal;
         ValidateHP(newHp);
-        Console.WriteLine($"{name} heals {heal} HP!");
 
     }
 
@@ -126,16 +133,9 @@ public class Player
         {
             hp = newHp;
         }
+        CheckStatus(HPCheck, new CurrentHPArgs(this.hp));
     }
 
-    /// <summary>
-    /// Prints the player's health status.
-    /// </summary>
-    public void PrintHealth()
-    {
-        CheckStatus(HPCheck, new CurrentHPArgs(this.hp));
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
-    }
 
     ///<summary>
     ///apply the Modifier

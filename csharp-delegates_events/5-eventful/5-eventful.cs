@@ -109,9 +109,9 @@ public class Player
         {
             heal = 0;
         }
+        Console.WriteLine($"{name} heals {heal} HP!");
         float newHp = hp + heal;
         ValidateHP(newHp);
-        Console.WriteLine($"{name} heals {heal} HP!");
     }
 
     ///<summary>
