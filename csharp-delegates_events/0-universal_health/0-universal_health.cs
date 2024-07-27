@@ -5,16 +5,16 @@
 /// </summary>
 public class Player
 {
-    private string name;
-    private float maxHp;
-    private float hp;
+    private string name {get; set;}
+    private float maxHp {get; set;}
+    private float hp {get; set;}
 
     /// <summary>
     /// Initializes a new instance of the Player class with a specified name and maximum health.
     /// </summary>
     /// <param name="name">The name of the player.</param>
     /// <param name="maxHp">The maximum health of the player.</param>
-    public Player(string name, float maxHp = 100f)
+    public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
         if (maxHp > 0)
