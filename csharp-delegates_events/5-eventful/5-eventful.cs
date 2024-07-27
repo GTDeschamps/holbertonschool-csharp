@@ -1,10 +1,5 @@
 ﻿using System;
 
-/// <summary>
-///Delegate for calculating Health Changes
-///</summary>
-///<param name="amount"> the amount of health to change </param>
-public delegate void CalculateHealth(float amount);
 
 /// <summary>
 /// Enum for modifier values
@@ -27,6 +22,11 @@ public enum Modifier
     Strong
 }
 
+/// <summary>
+///Delegate for calculating Health Changes
+///</summary>
+///<param name="amount"> the amount of health to change </param>
+public delegate void CalculateHealth(float amount);
 
 ///<summary>
 /// Delegate for calculating modifier
@@ -54,7 +54,7 @@ public class Player
     /// <param name="name">The name of the player.</param>
     /// <param name="maxHp">The maximum health of the player.</param>
     /// <param name="status"> Status of the player </param>
-    public Player(string name, float maxHp = 100f, string status = "Undefined")
+    public Player(string name = "Player", float maxHp = 100f, string status = "Undefined")
     {
         this.name = name;
         if (maxHp > 0)
@@ -75,6 +75,13 @@ public class Player
         HPCheck += CheckStatus; // Assign CheckStatus to the HPCheck EventHandler
     }
 
+    /// <summary>
+    /// Prints the player's health status.
+    /// </summary>
+    public void PrintHealth()
+    {
+        Console.WriteLine($"{name} has {hp} / {maxHp} health");
+    }
 
 
     ///<summary>
@@ -87,9 +94,9 @@ public class Player
         {
             damage = 0;
         }
+        Console.WriteLine($"{name} takes {damage} damage!");
         float newHp = hp - damage;
         ValidateHP(newHp);
-        Console.WriteLine($"{name} takes {damage} damage!");
     }
 
     ///<summary>
@@ -105,7 +112,6 @@ public class Player
         float newHp = hp + heal;
         ValidateHP(newHp);
         Console.WriteLine($"{name} heals {heal} HP!");
-
     }
 
     ///<summary>
@@ -129,14 +135,6 @@ public class Player
         OnCheckStatus(new CurrentHPArgs(hp));
     }
 
-    /// <summary>
-    /// Prints the player's health status.
-    /// </summary>
-    public void PrintHealth()
-    {
-        CheckStatus(HPCheck, new CurrentHPArgs(this.hp));
-        Console.WriteLine($"{name} has {hp} / {maxHp} health");
-    }
 
     ///<summary>
     ///apply the Modifier
@@ -210,13 +208,12 @@ public class Player
     private void OnCheckStatus(CurrentHPArgs e)
     {
         CheckStatus(HPCheck, e);
-        if (e.currentHp < maxHp / 4)
+        if (e.currentHp < this.maxHp / 4)
         {
             HPValueWarning(HPCheck, e);
         }
     }
 }
-
 
 ///<summary>
 ///Current Hp Args

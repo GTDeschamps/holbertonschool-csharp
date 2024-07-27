@@ -87,9 +87,9 @@ public class Player
         {
             damage = 0;
         }
+        Console.WriteLine($"{name} takes {damage} damage!");
         float newHp = hp - damage;
         ValidateHP(newHp);
-        Console.WriteLine($"{name} takes {damage} damage!");
     }
 
     ///<summary>
