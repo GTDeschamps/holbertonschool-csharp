@@ -16,7 +16,7 @@ public enum Modifier
     /// </summary>
     Weak,
 
-/// <summary>
+    /// <summary>
     /// Represents a Base modifier, which keep the base value.
     /// </summary>
     Base,
@@ -46,7 +46,7 @@ public class Player
     private string name;
     private float maxHp;
     private float hp;
-    private string status {get; set;}
+    private string status { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the Player class with a specified name and maximum health.
@@ -126,6 +126,7 @@ public class Player
         {
             hp = newHp;
         }
+        OnCheckStatus(new CurrentHPArgs(hp));
     }
 
     /// <summary>
@@ -162,7 +163,7 @@ public class Player
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-     private void CheckStatus(object sender, CurrentHPArgs e)
+    private void CheckStatus(object sender, CurrentHPArgs e)
     {
         float currentHp = e.currentHp;
         // Assuming maxHp is accessible here, you can adjust the values as needed
@@ -188,12 +189,39 @@ public class Player
             Console.WriteLine($"{name} is knocked out!");
         }
     }
+
+    private void HPValueWarning(object sender, CurrentHPArgs e)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        if (e.currentHp == 0)
+        {
+            Console.WriteLine("Health has reached zero!");
+        }
+        else
+        {
+            Console.WriteLine("Health is low!");
+        }
+        Console.ResetColor();
+    }
+
+    ///<summary>
+    ///Method OnCheckStatus
+    ///</summary>
+    private void OnCheckStatus(CurrentHPArgs e)
+    {
+        CheckStatus(HPCheck, e);
+        if (e.currentHp < maxHp / 4)
+        {
+            HPValueWarning(HPCheck, e);
+        }
+    }
 }
+
 
 ///<summary>
 ///Current Hp Args
 ///</summary>
-public class CurrentHPArgs: EventArgs
+public class CurrentHPArgs : EventArgs
 {
     /// <summary>
     /// currentHP can't be modified
